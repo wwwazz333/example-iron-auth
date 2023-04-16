@@ -9,10 +9,10 @@ import { User } from 'src/lib/user'
 export default function SsrProfile({
   user,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
   return (
     <Layout>
       <h1>Profile Server-side Rendering (SSR)</h1>
-
 
       {user?.isLoggedIn && (
 
@@ -28,19 +28,23 @@ export const getServerSideProps = withIronSessionSsr(async function ({
   req,
   res,
 }) {
+  console.log('Rendering the Profile page');
+  
   const user = req.session.user
 
   if (user === undefined) {
     res.setHeader('location', '/login')
     res.statusCode = 302
     res.end()
+
+    const notLogedUser : User = {
+      isLoggedIn: false,
+      login: '',
+      isAdmin: false,
+    };
     return {
       props: {
-        user: {
-          isLoggedIn: false,
-          login: '',
-          isAdmin: false,
-        } as User,
+        user: notLogedUser,
       },
     }
   }
