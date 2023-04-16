@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import Router from 'next/router'
 import useSWR from 'swr'
-import { User } from 'pages/api/user'
+import { User } from './user'
 
+
+//appelé en Static Generation
 export default function useUser({
   redirectTo = '',
   redirectIfFound = false,

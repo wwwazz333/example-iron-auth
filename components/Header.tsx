@@ -4,6 +4,12 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import fetchJson from 'lib/fetchJson'
 
+export function LoginButton(){
+  
+}
+
+
+
 export default function Header() {
   const { user, mutateUser } = useUser()
   const router = useRouter()
@@ -29,28 +35,13 @@ export default function Header() {
               <li>
                 <Link href="/profile-sg" legacyBehavior>
                   <a>
-                    <span
-                      style={{
-                        marginRight: '.3em',
-                        verticalAlign: 'middle',
-                        borderRadius: '100%',
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <Image
-                        src={user.avatarUrl}
-                        width={32}
-                        height={32}
-                        alt=""
-                      />
-                    </span>
-                    Profile (Static Generation, recommended)
+                    Profile (SG)
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/profile-ssr" legacyBehavior>
-                  <a>Profile (Server-side Rendering)</a>
+                  <a>Profile (SSR)</a>
                 </Link>
               </li>
               <li>
@@ -70,52 +61,8 @@ export default function Header() {
               </li>
             </>
           )}
-          <li>
-            <a href="https://github.com/vvo/iron-session">
-              <Image
-                src="/GitHub-Mark-Light-32px.png"
-                width="32"
-                height="32"
-                alt=""
-              />
-            </a>
-          </li>
         </ul>
       </nav>
-      <style jsx>{`
-        ul {
-          display: flex;
-          list-style: none;
-          margin-left: 0;
-          padding-left: 0;
-        }
-
-        li {
-          margin-right: 1rem;
-          display: flex;
-        }
-
-        li:first-child {
-          margin-left: auto;
-        }
-
-        a {
-          color: #fff;
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-        }
-
-        a img {
-          margin-right: 1em;
-        }
-
-        header {
-          padding: 0.2rem;
-          color: #fff;
-          background-color: #333;
-        }
-      `}</style>
     </header>
   )
 }

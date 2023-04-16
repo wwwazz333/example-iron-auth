@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useUser from 'lib/useUser'
 import Layout from 'components/Layout'
-import Form from 'components/Form'
+import LoginForm from 'components/LoginForm'
 import fetchJson, { FetchError } from 'lib/fetchJson'
 
 export default function Login() {
@@ -16,21 +16,17 @@ export default function Login() {
   return (
     <Layout>
       <div className="login">
-        <Form
+        <LoginForm
           errorMessage={errorMsg}
-          onSubmit={async function handleSubmit(event) {
-            event.preventDefault()
-
-            const body = {
-              username: event.currentTarget.username.value,
-            }
-
+          onSubmit={async function (data) {
+            const login = data.login;
+            const password = data.password;
             try {
               mutateUser(
                 await fetchJson('/api/login', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(body),
+                  body: JSON.stringify({ login, password }),
                 })
               )
             } catch (error) {
@@ -43,15 +39,6 @@ export default function Login() {
           }}
         />
       </div>
-      <style jsx>{`
-        .login {
-          max-width: 21rem;
-          margin: 0 auto;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-      `}</style>
     </Layout>
   )
 }
