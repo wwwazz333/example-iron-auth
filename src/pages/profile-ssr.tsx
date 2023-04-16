@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from 'components/Layout'
+import Layout from 'src/components/Layout'
 import { withIronSessionSsr } from 'iron-session/next'
-import { sessionOptions } from 'lib/session'
+import { sessionOptions } from 'src/lib/session'
 
 import { InferGetServerSidePropsType } from 'next'
-import { User } from 'lib/user'
+import { User } from 'src/lib/user'
 
 export default function SsrProfile({
   user,

@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from 'components/Layout'
-import useUser from 'lib/useUser'
+import Layout from 'src/components/Layout'
+import useUser from 'src/lib/useUser'
 
 
 export default function SgProfile() {

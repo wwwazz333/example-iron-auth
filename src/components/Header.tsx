@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import useUser from 'lib/useUser'
+import useUser from 'src/lib/useUser'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import fetchJson from 'lib/fetchJson'
+import fetchJson from 'src/lib/fetchJson'
 
 export function LoginButton(){
   

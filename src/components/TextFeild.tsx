@@ -2,17 +2,16 @@ import { useTsController } from "@ts-react/form";
 
 export function TextField() {
 	const {
-		field: { onChange, value },
+		field: { onChange, value, name },
 		error,
 	} = useTsController<string>();
 
 	return (
 		<div>
-			<input
+			<label>{name} <input
 				onChange={(e) => onChange(e.target.value)}
 				value={value ? value : ""}
-				className="border border-gray-300 rounded-md"
-			/>
+			/></label>
 			{error && error.errorMessage}
 		</div>
 	);

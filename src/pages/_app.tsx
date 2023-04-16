@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
+import fetchJson from 'src/lib/fetchJson'
 import { SWRConfig } from 'swr'
-import fetchJson from 'lib/fetchJson'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
